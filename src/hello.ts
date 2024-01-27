@@ -8,9 +8,13 @@ export async function hello(ctx: Context) {
   await ctx.sendMessage(
     `Цикл: ${data.isDay ? "День" : "Ночь"} \nТемпература: ${
       data.temp
-    } \nВлажность: ${data.humidity} \nСвет: ${data.light_val} \nУведомления: ${
-      data.notifications
-    } \nСеть: ${data.currentNetwork} \nСостояние насоса: ${
+    } \nВлажность: ${
+      data.humidity != -1 ? data.humidity : "Нет Данных"
+    } \nЯркость света: ${
+      data.light_val != -1 ? data.light_val : "Нет Данных"
+    } \nУведомления: ${data.notifications} \nСеть: ${
+      data.currentNetwork
+    } \nСостояние насоса: ${
       data.pump_good ? "Отличное" : "Плохое"
     } \nСостояние света: ${
       data.light_good ? "Отличное" : "Плохое"
